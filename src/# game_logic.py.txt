@@ -1,0 +1,63 @@
+# game_logic.py
+import random
+
+class SimonGame:
+    """
+    Mengelola state dan aturan dari permainan Simon Says.
+    Class ini tidak memiliki pengetahuan tentang hardware atau jaringan.
+    """
+
+    def __init__(self):
+        """
+        Inisialisasi game dalam keadaan awal (IDLE).
+        """
+        self.sequence: list[str] = []
+        self.current_round: int = 0
+        self.player_input_index: int = 0
+        self.game_state: str = "IDLE"  # Kemungkinan state: IDLE, PLAYING, GAME_OVER
+
+    def start_game(self) -> bool:
+        """
+        Mereset dan memulai permainan baru. Mengatur state menjadi PLAYING.
+        
+        :return: bool - True jika game berhasil dimulai, False jika game sudah berjalan.
+        """
+        pass
+
+    def next_round(self) -> list[str]:
+        """
+        Memajukan game ke ronde berikutnya dengan menambahkan satu warna acak baru ke urutan.
+        Mereset indeks input pemain untuk ronde baru.
+
+        :return: list[str] - Urutan warna yang baru dan lengkap untuk ditampilkan.
+        """
+        pass
+
+    def validate_player_input(self, player_answer: str) -> str:
+        """
+        Memvalidasi satu input dari pemain terhadap urutan yang diharapkan.
+        Memperbarui state game menjadi GAME_OVER jika jawaban salah.
+
+        :param player_answer: str - Warna yang ditebak oleh pemain (misal, "red").
+        :return: str - Hasil validasi:
+                 - "CORRECT": Jawaban benar, tetapi ronde belum selesai.
+                 - "ROUND_COMPLETE": Jawaban benar dan merupakan jawaban terakhir untuk ronde ini.
+                 - "WRONG": Jawaban salah, game berakhir.
+        """
+        pass
+
+    def get_current_sequence(self) -> list[str]:
+        """
+        Mengambil urutan warna saat ini tanpa mengubah state.
+
+        :return: list[str] - Urutan warna yang aktif saat ini.
+        """
+        pass
+
+    def get_game_state(self) -> str:
+        """
+        Mengambil state game saat ini (IDLE, PLAYING, GAME_OVER).
+
+        :return: str - State game saat ini.
+        """
+        pass

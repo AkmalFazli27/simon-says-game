@@ -1,0 +1,52 @@
+# main.py (Untuk dijalankan di Wokwi)
+
+# =======================================================
+# BAGIAN 1: KODE DARI game_logic.py DITEMPEL DI SINI
+# =======================================================
+import random
+
+class SimonGame:
+    """
+    Mengelola state dan aturan dari permainan Simon Says.
+    """
+    def __init__(self):
+        # ... (isi lengkap dari kelas SimonGame)
+        pass
+    # ... (semua metode dari kelas SimonGame)
+
+# =======================================================
+# BAGIAN 2: KODE KONTROL ESP32
+# =======================================================
+import machine
+import time
+from umqtt.simple import MQTTClient
+
+# --- Modul Hardware ---
+led_pins = { ... }
+def flash_led(...):
+    pass
+
+# --- Modul MQTT & Jaringan ---
+# ... (kode koneksi Wi-Fi dan MQTT) ...
+
+# --- FUNGSI UTAMA (CONTROL FLOW) ---
+def main():
+    # Di sini, Anda bisa membuat instance dari kelas game
+    game = SimonGame() # << PENTING!
+
+    # ... (sisa kode setup Wi-Fi, MQTT, dll.) ...
+
+    # Di dalam loop utama atau callback, Anda menggunakan objek 'game'
+    # Contoh di dalam callback MQTT:
+    # if command == "start":
+    #   game.start_game()
+    #   publish_status(...)
+    # elif command == "input":
+    #   result = game.validate_player_input(...)
+    #   if result == "WRONG":
+    #     publish_status("game_over")
+    pass # ... (sisa dari main loop)
+
+# --- Jalankan Program ---
+if __name__ == "__main__":
+    main()

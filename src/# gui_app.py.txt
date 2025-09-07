@@ -1,0 +1,96 @@
+# gui_app.py
+import tkinter as tk
+from paho.mqtt import client as mqtt_client
+
+class SimonSaysGUI:
+    """
+    Mengelola jendela aplikasi Tkinter untuk permainan Simon Says.
+    Berkomunikasi dengan ESP32 melalui MQTT.
+    """
+
+    def __init__(self, root, broker: str, port: int, client_id: str):
+        """
+        Inisialisasi GUI, widget, dan koneksi MQTT.
+
+        :param root: tk.Tk - Root window dari Tkinter.
+        :param broker: str - Alamat IP atau hostname dari broker MQTT.
+        :param port: int - Port dari broker MQTT.
+        :param client_id: str - Client ID unik untuk koneksi MQTT ini.
+        """
+        pass
+
+    def _setup_widgets(self):
+        """
+        Membuat dan menata semua widget GUI (tombol, label).
+        (Metode private, dipanggil oleh __init__)
+        """
+        pass
+
+    def _connect_mqtt(self) -> mqtt_client.Client:
+        """
+        Menyiapkan dan memulai koneksi ke broker MQTT.
+        Men-subscribe ke topik status yang relevan.
+        (Metode private, dipanggil oleh __init__)
+
+        :return: mqtt_client.Client - Instance klien Paho-MQTT yang sudah terhubung.
+        """
+        pass
+
+    def _on_mqtt_message(self, client, userdata, msg):
+        """
+        Callback yang dipicu saat pesan diterima dari topik status ESP32.
+        Fungsi ini bertanggung jawab untuk mengupdate seluruh state GUI.
+        (Metode private)
+
+        :param client: Klien Paho-MQTT.
+        :param userdata: Data pengguna (jika ada).
+        :param msg: Pesan MQTT yang diterima (termasuk topik dan payload).
+        """
+        pass
+
+    def _publish_command(self, command: str):
+        """
+        Menerbitkan (publish) perintah ke ESP32 melalui MQTT.
+        (Metode private)
+
+        :param command: str - Perintah yang akan dikirim (misal, "start", "red").
+        """
+        pass
+
+    def _handle_start_press(self):
+        """
+        Aksi yang dijalankan saat tombol "Start" ditekan.
+        Memanggil _publish_command("start").
+        (Metode private, diikat ke tombol Start)
+        """
+        pass
+
+    def _handle_color_press(self, color: str):
+        """
+        Aksi yang dijalankan saat tombol warna ditekan.
+        Memanggil _publish_command dengan warna yang sesuai.
+        (Metode private, diikat ke tombol-tombol warna)
+
+        :param color: str - Warna dari tombol yang ditekan.
+        """
+        pass
+
+    def update_ui_state(self, state: str, score: int = 0):
+        """
+        Mengubah tampilan GUI (misalnya, mengaktifkan/menonaktifkan tombol, mengubah teks label)
+        berdasarkan state permainan yang diterima dari MQTT.
+
+        :param state: str - State baru dari UI (misal, "LOBBY", "WAITING_FOR_INPUT", "GAME_OVER").
+        :param score: int - (Opsional) Skor akhir untuk ditampilkan saat game over.
+        """
+        pass
+
+# --- Fungsi utama untuk menjalankan aplikasi ---
+def main():
+    """
+    Inisialisasi root window Tkinter dan memulai aplikasi GUI.
+    """
+    pass
+
+if __name__ == "__main__":
+    main()

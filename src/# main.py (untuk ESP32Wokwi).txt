@@ -1,0 +1,98 @@
+# main.py (untuk ESP32/Wokwi)
+import machine
+import time
+from umqtt.simple import MQTTClient
+import random
+
+# --- Bagian Kontrol Hardware ---
+def setup_leds() -> dict[str, machine.Pin]:
+    """
+    Menginisialisasi pin GPIO untuk semua LED sebagai output.
+
+    :return: dict[str, machine.Pin] - Dictionary yang memetakan nama warna ke objek Pin.
+    """
+    pass
+
+def flash_led(led_pins: dict, color: str, duration_sec: float):
+    """
+    Menyalakan satu LED untuk durasi tertentu, lalu mematikannya.
+
+    :param led_pins: dict - Dictionary objek Pin dari setup_leds.
+    :param color: str - Warna LED yang akan dinyalakan (kunci dari dictionary).
+    :param duration_sec: float - Lamanya waktu (dalam detik) LED akan menyala.
+    """
+    pass
+
+def play_animation(led_pins: dict, animation_type: str):
+    """
+    Memainkan urutan kedipan LED yang telah ditentukan.
+
+    :param led_pins: dict - Dictionary objek Pin dari setup_leds.
+    :param animation_type: str - Jenis animasi (misal, "WIN", "LOSE", "STARTUP").
+    """
+    pass
+
+# --- Bagian Koneksi Jaringan & MQTT ---
+def connect_wifi(ssid: str, password: str):
+    """
+    Menghubungkan ESP32 ke jaringan Wi-Fi.
+
+    :param ssid: str - Nama jaringan Wi-Fi.
+    :param password: str - Password jaringan Wi-Fi.
+    """
+    pass
+
+def connect_mqtt(broker: str, client_id: str, callback_func) -> MQTTClient:
+    """
+    Menghubungkan ke broker MQTT dan men-subscribe ke topik perintah.
+
+    :param broker: str - Alamat broker MQTT.
+    :param client_id: str - Client ID unik untuk ESP32.
+    :param callback_func: function - Fungsi yang akan dipanggil saat pesan MQTT diterima.
+    :return: MQTTClient - Instance klien MQTT yang sudah terhubung.
+    """
+    pass
+
+def publish_status(mqtt_client: MQTTClient, status: str, retained: bool = False):
+    """
+    Menerbitkan (publish) pesan status ke topik status.
+
+    :param mqtt_client: MQTTClient - Instance klien MQTT.
+    :param status: str - Pesan status yang akan dikirim.
+    :param retained: bool - Apakah pesan ini harus disimpan oleh broker (retained message).
+    """
+    pass
+
+# --- Bagian Inti: State Machine & Control Flow ---
+def main():
+    """
+    Fungsi utama yang menjalankan seluruh logika di ESP32.
+    Mengandung loop tak terbatas (infinite loop) yang mengelola state game
+    dan memeriksa pesan MQTT yang masuk.
+    """
+    # 1. Inisialisasi hardware (LEDs)
+    # 2. Inisialisasi game logic (variabel state, sequence, dll.)
+    # 3. Hubungkan ke Wi-Fi
+    # 4. Hubungkan ke MQTT, berikan fungsi _mqtt_callback sebagai argumen
+    # 5. Publikasikan status awal "IDLE" dengan retained=True
+    # 6. Masuk ke loop utama (while True):
+    #    a. Cek pesan MQTT yang masuk: client.check_msg()
+    #    b. Jalankan logika berdasarkan state game saat ini (IDLE, PLAYING, dll.)
+    #    c. Beri jeda singkat: time.sleep(0.1)
+    pass
+
+def _mqtt_callback(topic, msg):
+    """
+    Callback yang menangani semua pesan perintah yang masuk dari GUI.
+    Fungsi ini hanya boleh mengubah variabel state; logika utama
+    harus berada di dalam main loop.
+    (Fungsi "private" yang dilewatkan ke connect_mqtt)
+    
+    :param topic: bytes - Topik dari pesan yang masuk.
+    :param msg: bytes - Payload/isi dari pesan yang masuk.
+    """
+    pass
+
+# --- Jalankan program ---
+if __name__ == "__main__":
+    main()
