@@ -10,8 +10,8 @@
 using namespace std;
 
 // --- Konfigurasi Jaringan & MQTT ---
-const char* ssid = SECURE_SSID;
-const char* password = SECURE_PASSWORD;
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
 const char* mqtt_server = "broker.hivemq.com";
 const char* topic_command = "simon/command";
 const char* topic_status = "simon/status";

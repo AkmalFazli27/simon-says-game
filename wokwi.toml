@@ -2,3 +2,7 @@
 version = 1
 firmware = './.pio/build/az-delivery-devkit-v4/firmware.bin'
 elf = './.pio/build/az-delivery-devkit-v4/firmware.elf'
+
+[wifi]
+ssid = "Wokwi-GUEST"
+password = ""
